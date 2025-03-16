@@ -12,6 +12,15 @@ import Disclaimer from './pages/Disclaimer';
 import Faqs from './pages/Faqs';
 
 function App() {
+  React.useEffect(() => {
+    // Load the ad script
+    const script = document.createElement('script');
+    script.src = '//pl26134509.effectiveratecpm.com/c1ffca1c11adc6801ef8d233266d2b46/invoke.js';
+    script.async = true;
+    script.setAttribute('data-cfasync', 'false');
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <Router>
       <div className="min-h-screen flex flex-col bg-gradient-to-br from-indigo-50 to-purple-50">
@@ -27,6 +36,10 @@ function App() {
             <Route path="/faqs" element={<Faqs />} />
           </Routes>
         </main>
+        {/* Ad Banner */}
+        <div className="w-full flex justify-center py-8">
+          <div id="container-c1ffca1c11adc6801ef8d233266d2b46"></div>
+        </div>
         <Footer />
       </div>
     </Router>
